@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :zomato do
-    resources :restaurants, path_names: {new: 'brand_new'}
+    resources :restaurants do
+      resources :foods
+    end
   end
 
   get '*path' => 'not_found#index'
