@@ -1,10 +1,8 @@
-<h1>Foods in Restaurant</h1>
+<h1>Foods</h1>
 
 <% if @foods.length > 0 %>
     <% @foods.each do |food| %>
-        <p>
-            <%= "#{food[:id]}, #{food[:name]}" %>
-        </p>
+        <p><%= "#{food[:id]}, #{food[:name]}" %></p>
     <% end %>
 <% else %>
     <p>Items not found</p>

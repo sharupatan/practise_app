@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_30_140238) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_30_165043) do
+  create_table "foods", force: :cascade do |t|
+    t.string "name"
+    t.integer "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_foods_on_restaurant_id"
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.boolean "status"
@@ -18,4 +26,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_140238) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "foods", "restaurants"
 end

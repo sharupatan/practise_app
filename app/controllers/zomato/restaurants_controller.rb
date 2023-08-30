@@ -1,4 +1,6 @@
 class Zomato::RestaurantsController < ApplicationController
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  
   def index
     @restaurants = Restaurant.all
   end
@@ -12,6 +14,7 @@ class Zomato::RestaurantsController < ApplicationController
   end
 
   def show
+    @foods = @restaurant.foods
   end
 
   def edit
@@ -21,5 +24,11 @@ class Zomato::RestaurantsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
   end
 end
