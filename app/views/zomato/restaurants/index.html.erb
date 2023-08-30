@@ -1,0 +1,11 @@
+<h1>Restaurants</h1>
+
+<%= link_to :add_restaurant, new_zomato_restaurant_path %>
+
+<% if @restaurants.length > 0 %>
+    <% @restaurants.each do |res| %>
+        <p><%= "#{res[:id]}, #{res[:name]}, #{res[:status]}" %></p>
+    <% end %>
+<% else %>
+    <p>Items not found</p>
+<% end %>
