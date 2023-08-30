@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  namespace :zomato do
+    resources :restaurants, path_names: {new: 'brand_new'}
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get '*path' => 'not_found#index'
 end
