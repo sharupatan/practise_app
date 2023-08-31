@@ -7,7 +7,7 @@
         <p>
             <%= "#{res[:id]}, #{res[:name]}, #{res[:status]}" %>
             <%= link_to :add_food, url_for([:new,:zomato,res,:food]) %>
-            <%= link_to :view_foods, url_for([:zomato,res]) %>
+            <%= link_to :view_foods, [:zomato,res] %>
         </p>
     <% end %>
 <% else %>
