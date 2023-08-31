@@ -6,8 +6,8 @@
     <% @restaurants.each do |res| %>
         <p>
             <%= "#{res[:id]}, #{res[:name]}, #{res[:status]}" %>
-            <%= link_to :add_food, new_zomato_restaurant_food_path(res) %>
-            <%= link_to :view_foods, zomato_restaurant_path(res) %>
+            <%= link_to :add_food, url_for([:new,:zomato,res,:food]) %>
+            <%= link_to :view_foods, url_for([:zomato,res]) %>
         </p>
     <% end %>
 <% else %>
